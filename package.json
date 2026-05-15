@@ -1,0 +1,39 @@
+{
+  "name": "pixelcontext",
+  "version": "0.1.0",
+  "description": "Capture UI context and export AI-ready prompts",
+  "author": "",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@plasmohq/storage": "^1.15.0",
+    "html-to-image": "^1.11.13",
+    "plasmo": "^0.90.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.280",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "manifest": {
+    "permissions": ["storage", "activeTab", "scripting"],
+    "host_permissions": ["<all_urls>"],
+    "commands": {
+      "toggle-capture-mode": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+X",
+          "mac": "Command+Shift+X"
+        },
+        "description": "Toggle PixelContext capture mode"
+      }
+    }
+  }
+}
