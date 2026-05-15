@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PixelContext - Capture UI Context for AI</title>
+    <meta name="description" content="Capture UI context from any webpage and export AI-ready Markdown prompts." />
+    <style>
+      :root {
+        --bg-1: #0b1220;
+        --bg-2: #0f1b34;
+        --panel: #121f37;
+        --panel-2: #0f1a2f;
+        --text: #e5e7eb;
+        --muted: #93a3bf;
+        --accent: #3b82f6;
+        --accent-2: #22c55e;
+        --line: #243552;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(1200px 800px at 10% -10%, #1a2d56 0%, transparent 60%),
+          radial-gradient(900px 700px at 100% 0%, #152849 0%, transparent 55%),
+          linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 56px auto;
+        padding: 0 20px;
+      }
+      .card {
+        background: linear-gradient(180deg, var(--panel), var(--panel-2));
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 24px 54px rgba(2, 6, 23, 0.48);
+      }
+      .badge {
+        display: inline-block;
+        padding: 6px 10px;
+        border: 1px solid #284369;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #bfdbfe;
+        background: rgba(37, 99, 235, 0.15);
+      }
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(2rem, 4.4vw, 3rem);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.68;
+        font-size: 1.02rem;
+      }
+      .lead {
+        margin-top: 10px;
+        max-width: 760px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .feature {
+        border: 1px solid #223352;
+        border-radius: 12px;
+        background: rgba(15, 24, 43, 0.7);
+        padding: 12px;
+      }
+      .feature strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #dbeafe;
+        font-size: 0.96rem;
+      }
+      .feature span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      a.btn {
+        text-decoration: none;
+        color: #fff;
+        background: var(--accent);
+        border: 1px solid #4f8df8;
+        border-radius: 11px;
+        padding: 10px 14px;
+        font-weight: 600;
+      }
+      a.btn.secondary {
+        background: #1e304f;
+        border-color: #304977;
+        color: #dbeafe;
+      }
+      a.btn.success {
+        background: #14532d;
+        border-color: #1b7a41;
+        color: #dcfce7;
+      }
+      .footer {
+        margin-top: 22px;
+        font-size: 0.88rem;
+        color: #8ea2c0;
+      }
+      code {
+        padding: 2px 6px;
+        border-radius: 7px;
+        background: #0b1528;
+        border: 1px solid #223457;
+        color: #bfdbfe;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <span class="badge">Open Source Browser Extension</span>
+        <h1>PixelContext</h1>
+        <p class="lead">
+          Capture UI context from any webpage and export clean, AI-ready Markdown prompts.
+          Built for engineers, designers, and product teams who want faster debugging and implementation handoff.
+        </p>
+
+        <div class="grid">
+          <div class="feature">
+            <strong>Capture Any Element</strong>
+            <span>Click a component and save note, selector, HTML, CSS context, and screenshot reference.</span>
+          </div>
+          <div class="feature">
+            <strong>AI-Ready Export</strong>
+            <span>Generate one structured Markdown prompt for ChatGPT, Claude, or issue trackers.</span>
+          </div>
+          <div class="feature">
+            <strong>Privacy First</strong>
+            <span>Runs fully client-side with local extension storage. No backend required.</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="https://github.com/kowshik24/pixelcontext">View Repository</a>
+          <a class="btn secondary" href="https://github.com/kowshik24/pixelcontext/releases">Latest Releases</a>
+          <a class="btn success" href="https://kowshik24.github.io/pixelcontext/">Live Page</a>
+        </div>
+
+        <p class="footer">
+          Quick start: run <code>npm install</code>, then <code>npm run dev</code>, load <code>build/chrome-mv3-dev</code> in Chrome.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
