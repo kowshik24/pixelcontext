@@ -8,8 +8,17 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "lib": ["DOM", "ES2022"],
-    "types": ["chrome"]
+    "lib": [
+      "DOM",
+      "ES2022"
+    ],
+    "types": [
+      "chrome"
+    ]
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": [
+    ".plasmo/index.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

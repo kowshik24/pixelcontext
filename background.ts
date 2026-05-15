@@ -22,6 +22,16 @@ chrome.runtime.onMessage.addListener((message, sender) => {
     return
   }
 
+  if (message.type === "PIXELCONTEXT_SET_CAPTURE_MODE") {
+    chrome.tabs.sendMessage(tabId, { type: "PIXELCONTEXT_SET_CAPTURE_MODE", enabled: Boolean(message.enabled) })
+    return
+  }
+
+  if (message.type === "PIXELCONTEXT_TOGGLE_SIDEBAR") {
+    chrome.tabs.sendMessage(tabId, { type: "PIXELCONTEXT_TOGGLE_SIDEBAR" })
+    return
+  }
+
   if (message.type === "PIXELCONTEXT_HIGHLIGHT_SELECTOR") {
     chrome.tabs.sendMessage(tabId, message)
     return
