@@ -1,0 +1,49 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run build
+
+      - name: Package build
+        run: |
+          cd build
+          zip -r ../pixelcontext-build-${{ github.run_number }}.zip chrome-mv3-prod
+
+      - name: Compute release tag
+        id: meta
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "tag=v${VERSION}-build.${{ github.run_number }}" >> "$GITHUB_OUTPUT"
+          echo "name=PixelContext v${VERSION} (build ${{ github.run_number }})" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.name }}
+          generate_release_notes: true
+          files: pixelcontext-build-${{ github.run_number }}.zip
