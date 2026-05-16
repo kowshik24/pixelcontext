@@ -99,7 +99,8 @@ export const captureElement = async (element: Element): Promise<CaptureItem> => 
     const rawDataUrl = await toPng(element as HTMLElement, {
       cacheBust: true,
       pixelRatio: 1,
-      backgroundColor: "#ffffff"
+      backgroundColor: "#ffffff",
+      fontEmbedCSS: ""
     })
     const rect = element.getBoundingClientRect()
     const resized = await resizeDataUrl(rawDataUrl, rect.width, rect.height)
