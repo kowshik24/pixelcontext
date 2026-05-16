@@ -24,6 +24,8 @@
     "vitest": "^2.1.4"
   },
   "manifest": {
+    "name": "PixelContext",
+    "short_name": "PixelContext",
     "permissions": ["storage", "activeTab", "scripting"],
     "host_permissions": ["<all_urls>"],
     "commands": {
